@@ -17,7 +17,7 @@ export default async function page({
   const id = (await params).id;
   const session = await auth();
   const user = await client.fetch(AUTHOR_BY_ID_QUERY, { id });
-  if (!user || !session) return notFound();
+  if (!user) return notFound();
   return (
     <>
       <section className="profile_container">
@@ -39,7 +39,7 @@ export default async function page({
         </div>
         <div className="flex-1 flex flex-col gap-5 lg:-mt-5">
           <p className="text-30-bold">
-            {session.id === id ? "Your" : `${user.name}'s`} Startups
+            {session?.id === id ? "Your" : `${user.name}'s`} Startups
           </p>
           <ul className="card_grid-sm">
             <Suspense
