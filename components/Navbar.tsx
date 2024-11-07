@@ -17,7 +17,7 @@ export default async function Navbar() {
         <div className="flex items-center gap-5">
           {session && session.user ? (
             <>
-              <Link href="/startup/create">
+              <Link href="/create">
                 <span className="max-sm:hidden">Create</span>
                 <BadgePlusIcon size={24} className="sm:hidden" />
               </Link>
